@@ -1,0 +1,1 @@
+[{"uid":"d4bd75e0254050f","name":"Download a brochure by dropdown","time":{"start":1786107418863,"stop":1786107426681,"duration":7818},"status":"passed","severity":"critical"},{"uid":"94b63b63af20e701","name":"Download a brochure by email","time":{"start":1786107418862,"stop":1786107431724,"duration":12862},"status":"failed","severity":"critical"}]

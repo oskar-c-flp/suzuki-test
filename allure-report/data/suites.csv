@@ -1,0 +1,3 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"User is able to succesfully download a brochure by selecting it from a dropdown","7818","Download a brochure by dropdown","chromium","2026-08-07","passed","2026-08-07","","Brochure.spec.ts","",""
+"User is able to succesfully request a brochure to email","12862","Download a brochure by email","chromium","2026-08-07","failed","2026-08-07","","Brochure.spec.ts","",""
