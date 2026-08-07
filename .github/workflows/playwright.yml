@@ -41,8 +41,10 @@ jobs:
         if: always()
         id: vercel_deploy
         run: |
-          URL=$(vercel deploy allure-report --token=${{ secrets.VERCEL_TOKEN }} --yes --prod=false)
-          echo "url=$URL" >> "$GITHUB_OUTPUT"
+          OUTPUT=$(vercel deploy allure-report --token=${{ secrets.VERCEL_TOKEN }} --yes --prod 2>&1)
+          echo "$OUTPUT"
+          ALIAS_URL=$(echo "$OUTPUT" | grep -oP 'Aliased \K\S+')
+          echo "url=$ALIAS_URL" >> "$GITHUB_OUTPUT"
 
       - name: Publish report link to summary
         if: always()
