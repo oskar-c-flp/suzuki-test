@@ -15,7 +15,7 @@ async function acceptCookiesIfPresent(page: Page): Promise<void> {
 
 test('Download a brochure by dropdown', async ({ page }) => {
   await allure.epic('Brochures');
-  await allure.feature('Brochure download');
+  await allure.feature('Brochures download');
   await allure.story('Brochure download by dropdown');
   await allure.severity(Severity.CRITICAL);
   await allure.description("User is able to succesfully download a brochure by selecting it from a dropdown");
@@ -39,7 +39,7 @@ test('Download a brochure by dropdown', async ({ page }) => {
 });
 test('Download a brochure by email', async ({ page }) => {
   await allure.epic('Brochures');
-  await allure.feature('Brochure download');
+  await allure.feature('Brochures download');
   await allure.story('Brochure download by email');
   await allure.severity(Severity.CRITICAL);
   await allure.description("User is able to succesfully request a brochure to email");
