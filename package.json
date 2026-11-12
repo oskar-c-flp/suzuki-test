@@ -13,7 +13,9 @@
     "allure:generate": "allure generate allure-results --clean -o allure-report",
     "allure:open": "allure open allure-report",
     "allure:serve": "allure serve allure-results",
-    "report": "npm run allure:generate && npm run allure:open"
+    "report": "npm run allure:generate && npm run allure:open",
+    "report:pdf": "node generate-pdf-report.js allure-results allure-report.pdf",
+    "codegen": "npx playwright codegen"
   },
   "keywords": [],
   "author": "",
@@ -24,6 +26,7 @@
     "@types/node": "^26.1.2",
     "allure-commandline": "^2.43.0",
     "allure-playwright": "^3.10.2",
+    "pdfkit": "^0.19.1",
     "rimraf": "^6.1.3"
   }
 }
