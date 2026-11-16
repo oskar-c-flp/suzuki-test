@@ -1,0 +1,643 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: 4W.spec.ts >> Finance - Vitara
+- Location: tests\4W.spec.ts:837:5
+
+# Error details
+
+```
+Test timeout of 30000ms exceeded.
+```
+
+```
+Error: locator.click: Test timeout of 30000ms exceeded.
+Call log:
+  - waiting for getByRole('combobox', { name: 'Grade type (Required) MOTION' })
+
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - alert [ref=e3]
+    - status [ref=e4]
+    - link "Skip to main content" [ref=e5] [cursor=pointer]:
+      - /url: "#main-content"
+    - banner [ref=e6]:
+      - button "Close notification banner" [ref=e7] [cursor=pointer]
+      - generic [ref=e9]:
+        - navigation "Quick links" [ref=e10]:
+          - list [ref=e11]:
+            - listitem [ref=e12]:
+              - link "Find us" [ref=e13] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/find-a-dealer/
+            - listitem [ref=e16]:
+              - link "Book a Test Drive" [ref=e17] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/request-a-test-drive/
+            - listitem [ref=e20]:
+              - link "Book a Service" [ref=e21] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/owners/request-a-service/
+            - listitem [ref=e24]:
+              - link "Request a callback" [ref=e25] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/request-a-call-back/
+                - generic [ref=e27]: Request a Callback
+            - listitem [ref=e28]:
+              - link "Request a brochure" [ref=e29] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/request-a-brochure/
+            - listitem [ref=e32]:
+              - link "Finance Calculator" [ref=e33] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/finance-calculator/
+        - link "Suzuki homepage" [ref=e36] [cursor=pointer]:
+          - /url: /
+        - navigation "Main navigation" [ref=e38]:
+          - list [ref=e42]:
+            - link "NEW CARS, 1 of 6" [ref=e43] [cursor=pointer]:
+              - /url: "#"
+              - text: NEW CARS
+            - link "USED CARS, 2 of 6" [ref=e44] [cursor=pointer]:
+              - /url: "#"
+              - text: USED CARS
+            - link "MOTABILITY, 3 of 6" [ref=e45] [cursor=pointer]:
+              - /url: "#"
+              - text: MOTABILITY
+            - link "BUSINESS, 4 of 6" [ref=e46] [cursor=pointer]:
+              - /url: "#"
+              - text: BUSINESS
+            - link "OFFERS & FINANCE, 5 of 6" [ref=e47] [cursor=pointer]:
+              - /url: "#"
+              - text: OFFERS & FINANCE
+            - link "OWNERS, 6 of 6" [ref=e48] [cursor=pointer]:
+              - /url: "#"
+              - text: OWNERS
+          - status [ref=e49]
+          - button "Search Suzuki website. Focus moves to search field when activated." [ref=e50] [cursor=pointer]
+    - main [ref=e54]:
+      - generic [ref=e56]:
+        - generic [ref=e57]:
+          - paragraph [ref=e58]: GET CLOSER TO OWNING A NEW SUZUKI
+          - heading "OUR CAR FINANCE CALCULATOR" [level=1] [ref=e59]
+          - paragraph [ref=e61]: With Suzuki Finance, we have flexible options that allow you to drive away in a new Suzuki Car. Fill in the details below and we’ll calculate a personalised repayment plan for you. You can then send your quote to your local dealer.
+        - form "Finance calculator" [ref=e62]:
+          - generic [ref=e63]:
+            - generic [ref=e64]:
+              - radiogroup "Are you a Personal, Motability or Business Customer? (Required) More information about customer types" [ref=e65]:
+                - generic [ref=e68]:
+                  - generic [ref=e69]:
+                    - text: Are you a Personal, Motability or Business Customer?*
+                    - generic [ref=e70]: (Required)
+                  - button "More information about customer types" [ref=e71] [cursor=pointer]
+                - generic [ref=e73]:
+                  - generic [ref=e74]:
+                    - radio "Personal" [checked] [active] [ref=e75]
+                    - generic [ref=e76] [cursor=pointer]: Personal
+                  - generic [ref=e78]:
+                    - radio "Motability" [ref=e79]
+                    - generic [ref=e80] [cursor=pointer]: Motability
+                  - generic [ref=e82]:
+                    - radio "Business" [ref=e83]
+                    - generic [ref=e84] [cursor=pointer]: Business
+                - status
+              - generic [ref=e86]:
+                - generic [ref=e89]:
+                  - text: Model
+                  - generic [ref=e90]: "*"
+                  - generic [ref=e91]: (Required)
+                - combobox "Model (Required) Select model" [ref=e92] [cursor=pointer]: Select model
+            - generic [ref=e94]:
+              - generic [ref=e95]:
+                - generic [ref=e98]:
+                  - text: Grade type
+                  - generic [ref=e99]: "*"
+                  - generic [ref=e100]: (Required)
+                - combobox "Grade type (Required) Select grade type" [ref=e101] [cursor=pointer]: Select grade type
+              - generic [ref=e103]:
+                - generic [ref=e104]:
+                  - generic [ref=e106]:
+                    - text: Finance type
+                    - generic [ref=e107]: "*"
+                    - generic [ref=e108]: (Required)
+                  - button "Finance type more info" [ref=e109]
+                - combobox "Finance type (Required) Personal Contract Purchase" [ref=e111] [cursor=pointer]: Personal Contract Purchase
+            - paragraph [ref=e115]: Personal Contract Purchase (PCP) is a finance plan that allows you to spread the cost of the car by making monthly payments over an agreed term, with a large proportion of the amount you repay deferred into an optional final repayment.
+            - generic [ref=e116]:
+              - group [disabled] [ref=e117]:
+                - generic [ref=e118]:
+                  - generic [ref=e119]: A larger deposit could reduce your monthly payments.
+                  - button [disabled] [ref=e120] [cursor=pointer]
+                - slider [disabled] [ref=e122]: "25"
+                - generic [ref=e123]: Minimum value is 24. Maximum value is 49.
+                - generic [ref=e124]: "24"
+                - generic [ref=e125]: "25"
+                - generic [ref=e126]: "49"
+                - generic [ref=e127]: Value must be set
+              - group [disabled] [ref=e128]:
+                - generic [ref=e129]:
+                  - generic [ref=e130]: What’s your annual mileage?
+                  - button [disabled] [ref=e131] [cursor=pointer]
+                - slider [disabled] [ref=e133]: "6000"
+                - generic [ref=e134]: Minimum value is 5000. Maximum value is 24000.
+                - generic [ref=e135]: 5,000
+                - generic [ref=e136]: 6,000
+                - generic [ref=e137]: 24,000
+                - generic [ref=e138]: Value must be set
+              - generic [ref=e139]:
+                - group [disabled] [ref=e141]:
+                  - generic [ref=e144]:
+                    - generic [ref=e145]: Quote using your preferred deposit or monthly payment?
+                    - button [disabled] [ref=e146] [cursor=pointer]
+                  - generic [ref=e148]:
+                    - generic [ref=e149] [cursor=pointer]:
+                      - radio [disabled] [ref=e150]
+                      - generic [ref=e151]: Monthly Payment
+                    - generic [ref=e152] [cursor=pointer]:
+                      - radio [checked] [disabled] [ref=e153]
+                      - generic [ref=e154]: Deposit
+                - generic [ref=e156]:
+                  - generic [ref=e157]:
+                    - generic [ref=e158]: Deposit
+                    - button [disabled] [ref=e160] [cursor=pointer]
+                  - generic [ref=e162]:
+                    - generic [ref=e163]: £
+                    - textbox [disabled] [ref=e164]:
+                      - /placeholder: "0.00"
+                      - text: "0.00"
+            - paragraph [ref=e165]: Adjust the deposit or monthly payment to explore finance options that suit your needs.
+            - generic [ref=e167]:
+              - button [disabled] [ref=e168]:
+                - generic [ref=e169]: Calculate financing
+              - link "Compare PCP, HP and PCH and download the details as a PDF" [ref=e170] [cursor=pointer]:
+                - /url: https://staging-cdn.test-suzuki.co.uk/stage-suzuki-gb/xzddv03q/suzuki-finance-product-guide-cars.pdf
+                - text: COMPARE PCP, HP & PCH
+        - generic [ref=e174]:
+          - button [disabled] [ref=e175] [cursor=pointer]:
+            - generic [ref=e176]: Print
+          - button [disabled] [ref=e178]:
+            - generic [ref=e179]: Submit to dealer
+      - paragraph [ref=e185]:
+        - generic [ref=e186]:
+          - strong [ref=e187]: Terms of credit
+          - text: Credit is available to UK residents aged 18 years or over, subject to status, from Suzuki Finance, a trading style of
+          - generic [ref=e188]: Suzuki Financial Services Ltd, No. 1 John Street, Callaghan Square, Cardiff, CF10 5PE
+          - text: ". With Personal Contract Purchase (PCP) you have the option after you have paid all of the regular monthly repayments to: (1) Return the vehicle and not pay the Optional Final Payment. If the vehicle has exceeded the maximum permitted mileage, a charge will apply per excess mile. If the vehicle is in good condition (fair wear and tear accepted) and has not exceeded the maximum permitted mileage you will have nothing further to pay. (2) Pay the Optional Final Repayment to own the vehicle or (3) Part exchange the vehicle subject to settlement of your existing finance agreement; new finance agreements are subject to status."
+          - generic [ref=e189]: Valid from 1st October 2026 and 31st December 2026.
+          - strong [ref=e190]: Terms of hire
+        - generic [ref=e191]:
+          - text: Personal Contract hire and Business Contract hire are subject to status and approval, available to UK residents aged 18 and over. Contract Hire is provided by Suzuki Contract Hire, a trading style of Lex Autolease Limited, PO Box 3982, Chester, CH1 9XD. If the vehicle exceeds the contract mileage, an excess mileage charge will apply. You will not own the vehicle and it should be returned to us in a condition that meets BVRLA ‘fair wear and tear’ guidelines, otherwise charges may apply. Lex Autolease Limited. Registered in England & Wales No. 1090741.
+          - strong [ref=e192]: "Registered office: 25 Gresham Street, London, EC2V 7HN."
+      - generic [ref=e194]:
+        - generic [ref=e195]:
+          - generic [ref=e196]: PERSONAL CONTRACT PURCHASE (PCP)
+          - link "EXPLORE PCP FINANCE arrow" [ref=e198] [cursor=pointer]:
+            - /url: https://staging-cars.test-suzuki.co.uk/offers-finance/suzuki-finance/personal-contract-purchase/?dataLayer=bmF2aWdhdGlvbl9tZXRob2Q9Q2FyJTIwRmluYW5jZSUyMENhbGN1bGF0b3IlMjAlN0MlMjBTdXp1a2klMjBDYXJzJTIwVUsmbmF2aWdhdGlvbl9lbGVtZW50PUVYUExPUkUlMjBQQ1AlMjBGSU5BTkNF
+            - generic [ref=e199]: EXPLORE PCP FINANCE
+            - img "arrow" [ref=e200]
+        - generic [ref=e201]:
+          - generic [ref=e202]: PERSONAL CONTRACT HIRE (PCH)
+          - link "EXPLORE PCH FINANCE arrow" [ref=e204] [cursor=pointer]:
+            - /url: https://staging-cars.test-suzuki.co.uk/offers-finance/suzuki-finance/personal-contract-hire/?dataLayer=bmF2aWdhdGlvbl9tZXRob2Q9Q2FyJTIwRmluYW5jZSUyMENhbGN1bGF0b3IlMjAlN0MlMjBTdXp1a2klMjBDYXJzJTIwVUsmbmF2aWdhdGlvbl9lbGVtZW50PUVYUExPUkUlMjBQQ0glMjBGSU5BTkNF
+            - generic [ref=e205]: EXPLORE PCH FINANCE
+            - img "arrow" [ref=e206]
+        - generic [ref=e207]:
+          - generic [ref=e208]: HIRE PURCHASE (HP)
+          - link "Explore HP Finance arrow" [ref=e210] [cursor=pointer]:
+            - /url: https://staging-cars.test-suzuki.co.uk/offers-finance/suzuki-finance/hire-purchase/?dataLayer=bmF2aWdhdGlvbl9tZXRob2Q9Q2FyJTIwRmluYW5jZSUyMENhbGN1bGF0b3IlMjAlN0MlMjBTdXp1a2klMjBDYXJzJTIwVUsmbmF2aWdhdGlvbl9lbGVtZW50PUV4cGxvcmUlMjBIUCUyMEZpbmFuY2U
+            - generic [ref=e211]: Explore HP Finance
+            - img "arrow" [ref=e212]
+      - generic [ref=e217]:
+        - generic [ref=e219]:
+          - img "SUZUKI CAR INSURANCE" [ref=e220]
+          - generic [ref=e222]:
+            - heading "SUZUKI CAR INSURANCE" [level=4] [ref=e223]
+            - paragraph [ref=e224]: Get a quote for flexible monthly insurance designed for your Suzuki.
+            - link "Get A Quote" [ref=e226] [cursor=pointer]:
+              - /url: https://staging-cars.test-suzuki.co.uk/insurance/
+        - generic [ref=e233]:
+          - heading "READY TO CONFIGURE" [level=4] [ref=e234]
+          - paragraph [ref=e235]: Build your perfect Suzuki and tailor it to your lifestyle.
+          - link "Configure Now" [ref=e237] [cursor=pointer]:
+            - /url: https://staging-cars.test-suzuki.co.uk/new-cars/vitara/configure/
+        - generic [ref=e244]:
+          - heading "BOOK A TEST DRIVE" [level=4] [ref=e245]
+          - paragraph [ref=e246]: Experience your Suzuki on the road and find the right fit for you.
+          - link "Book A Test Drive" [ref=e248] [cursor=pointer]:
+            - /url: https://staging-cars.test-suzuki.co.uk/request-a-test-drive/
+    - contentinfo [ref=e252]:
+      - generic [ref=e253]:
+        - paragraph [ref=e254]: Not finished? It's all here...
+        - generic [ref=e255]:
+          - button "Search for results" [ref=e256] [cursor=pointer]:
+            - img "Search icon" [ref=e257]
+          - searchbox "Search" [ref=e258]
+        - generic [ref=e259]:
+          - generic [ref=e260]: "Popular searches:"
+          - list [ref=e261]:
+            - listitem [ref=e262]:
+              - link "Vitara" [ref=e263] [cursor=pointer]:
+                - /url: /search/?search=Vitara&pageCount=1
+            - listitem [ref=e265]:
+              - link "Motability" [ref=e266] [cursor=pointer]:
+                - /url: /search/?search=Motability&pageCount=1
+            - listitem [ref=e268]:
+              - link "Dealers" [ref=e269] [cursor=pointer]:
+                - /url: /search/?search=Dealers&pageCount=1
+            - listitem [ref=e271]:
+              - link "Hybrid" [ref=e272] [cursor=pointer]:
+                - /url: /search/?search=Hybrid&pageCount=1
+            - listitem [ref=e274]:
+              - link "Contact" [ref=e275] [cursor=pointer]:
+                - /url: /search/?search=Contact&pageCount=1
+            - listitem [ref=e277]:
+              - link "Swift" [ref=e278] [cursor=pointer]:
+                - /url: /search/?search=Swift&pageCount=1
+            - listitem [ref=e280]:
+              - link "0% Car Finance" [ref=e281] [cursor=pointer]:
+                - /url: /search/?search=0%25%20Car%20Finance&pageCount=1
+            - listitem [ref=e283]:
+              - link "Electric" [ref=e284] [cursor=pointer]:
+                - /url: /search/?search=Electric&pageCount=1
+      - generic [ref=e287]:
+        - generic [ref=e288]:
+          - generic [ref=e289]: Models
+          - list [ref=e290]:
+            - listitem [ref=e291]:
+              - link "e Vitara" [ref=e292] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/new-cars/e-vitara/
+            - listitem [ref=e293]:
+              - link "Swift" [ref=e294] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/new-cars/swift/
+            - listitem [ref=e295]:
+              - link "S-Cross" [ref=e296] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/new-cars/s-cross/
+            - listitem [ref=e297]:
+              - link "Vitara" [ref=e298] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/new-cars/vitara/
+            - listitem [ref=e299]:
+              - link "Across" [ref=e300] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/new-cars/across/
+            - listitem [ref=e301]:
+              - link "Ignis" [ref=e302] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/new-cars/ignis/
+            - listitem [ref=e303]:
+              - link "Swace" [ref=e304] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/new-cars/swace/
+            - listitem [ref=e305]:
+              - link "Swift Sport" [ref=e306] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/new-cars/swift-sport/
+            - listitem [ref=e307]:
+              - link "Jimny" [ref=e308] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/new-cars/jimny/
+        - generic [ref=e309]:
+          - generic [ref=e310]: About Suzuki
+          - list [ref=e311]:
+            - listitem [ref=e312]:
+              - link "About Us" [ref=e313] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/about-us/
+            - listitem [ref=e314]:
+              - link "Awards" [ref=e315] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/awards/
+            - listitem [ref=e316]:
+              - link "Contact Us" [ref=e317] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/contact-us/
+            - listitem [ref=e318]:
+              - link "Careers" [ref=e319] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/careers/
+            - listitem [ref=e320]:
+              - link "Apprenticeships" [ref=e321] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/apprenticeships/
+        - generic [ref=e322]:
+          - generic [ref=e323]: Business
+          - list [ref=e324]:
+            - listitem [ref=e325]:
+              - link "Company Car Driver" [ref=e326] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/business/company-car/
+            - listitem [ref=e327]:
+              - link "Fleet Managers" [ref=e328] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/business/fleet-manager/
+            - listitem [ref=e329]:
+              - link "Driving Instructors" [ref=e330] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/business/driving-school-programme/
+            - listitem [ref=e331]:
+              - link "Suzuki Dealer Franchise" [ref=e332] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/franchised-suzuki-dealer/
+        - generic [ref=e333]:
+          - generic [ref=e334]: Owners
+          - list [ref=e335]:
+            - listitem [ref=e336]:
+              - link "Book a Service" [ref=e337] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/owners/request-a-service/
+            - listitem [ref=e338]:
+              - link "Suzuki Servicing" [ref=e339] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/owners/servicing/
+            - listitem [ref=e340]:
+              - link "Handbooks" [ref=e341] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/owners/using-your-car/owners-handbooks/
+        - generic [ref=e342]:
+          - generic [ref=e343]: Suzuki Global
+          - list [ref=e344]:
+            - listitem [ref=e345]:
+              - link "Bikes" [ref=e346] [cursor=pointer]:
+                - /url: https://staging-bikes.test-suzuki.co.uk/
+            - listitem [ref=e347]:
+              - link "ATV" [ref=e348] [cursor=pointer]:
+                - /url: https://staging-atv.test-suzuki.co.uk/
+            - listitem [ref=e349]:
+              - link "Marine" [ref=e350] [cursor=pointer]:
+                - /url: https://staging-marine.test-suzuki.co.uk/
+        - generic [ref=e351]:
+          - generic [ref=e352]: Useful Information
+          - list [ref=e353]:
+            - listitem [ref=e354]:
+              - link "Privacy Policy" [ref=e355] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/privacy/
+            - listitem [ref=e356]:
+              - link "Cookie Policy" [ref=e357] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/privacy/cookie-policy/
+            - listitem [ref=e358]:
+              - link "Quality Policy" [ref=e359] [cursor=pointer]:
+                - /url: https://cars-services.suzuki.co.uk/api/Asset/GetAsset/suzuki-quality-policy.pdf
+            - listitem [ref=e360]:
+              - link "Legal" [ref=e361] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/terms-of-use/
+            - listitem [ref=e362]:
+              - link "Section 172 Statement" [ref=e363] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/section-172-statement/
+            - listitem [ref=e364]:
+              - link "Tax Strategy" [ref=e365] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/uk-tax-strategy/
+            - listitem [ref=e366]:
+              - link "Human Trafficking Statement, opens in new tab" [ref=e367] [cursor=pointer]:
+                - /url: https://cars-services.suzuki.co.uk/api/Asset/GetAsset/suzuki-modern-slavery-and-human-trafficking-statement.pdf
+                - text: Human Trafficking Statement
+            - listitem [ref=e368]:
+              - link "Certificate of Conformity" [ref=e369] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/contact-us/certificate-of-conformity/
+            - listitem [ref=e370]:
+              - link "Sitemap" [ref=e371] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/sitemap/
+            - listitem [ref=e372]:
+              - link "Manage Cookies" [ref=e373] [cursor=pointer]:
+                - /url: /finance-calculator/#
+        - generic [ref=e374]:
+          - generic [ref=e375]: Motability
+          - list [ref=e376]:
+            - listitem [ref=e377]:
+              - link "What is Motability" [ref=e378] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/motability/what-is-motability/
+            - listitem [ref=e379]:
+              - link "Motability Offers" [ref=e380] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/motability/
+        - generic [ref=e381]:
+          - generic [ref=e382]: Categories
+          - list [ref=e383]:
+            - listitem [ref=e384]:
+              - link "Electric Cars" [ref=e385] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/new-cars/electric-cars/
+            - listitem [ref=e386]:
+              - link "SUV Cars" [ref=e387] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/new-cars/suv-crossovers/
+            - listitem [ref=e388]:
+              - link "Small Cars" [ref=e389] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/new-cars/small-hatchbacks/
+            - listitem [ref=e390]:
+              - link "Hybrid Cars" [ref=e391] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/hybrid/
+            - listitem [ref=e392]:
+              - link "City Cars" [ref=e393] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/new-cars/city-cars/
+            - listitem [ref=e394]:
+              - link "Automatic Cars" [ref=e395] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/automatic-cars/
+            - listitem [ref=e396]:
+              - link "Family Cars" [ref=e397] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/new-cars/family-cars/
+            - listitem [ref=e398]:
+              - link "Plug-In Hybrid Cars" [ref=e399] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/hybrid/plug-in-hybrid-electric-vehicles/
+            - listitem [ref=e400]:
+              - link "AllGrip" [ref=e401] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/allgrip/
+        - generic [ref=e402]:
+          - generic [ref=e403]: Get your Suzuki
+          - list [ref=e404]:
+            - listitem [ref=e405]:
+              - link "Request a Brochure" [ref=e406] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/request-a-brochure/
+            - listitem [ref=e407]:
+              - link "Find us" [ref=e408] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/find-a-dealer/
+            - listitem [ref=e409]:
+              - link "Request A Test Drive" [ref=e410] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/request-a-test-drive/
+            - listitem [ref=e411]:
+              - link "Car Configurator" [ref=e412] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/new-cars/configure/
+            - listitem [ref=e413]:
+              - link "Finance Calculator" [ref=e414] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/finance-calculator/
+        - generic [ref=e415]:
+          - generic [ref=e416]: Suzuki on social media
+          - generic [ref=e417]:
+            - link "Visit our Facebook page (opens in new tab)" [ref=e418] [cursor=pointer]:
+              - /url: http://facebook.com/suzukicarsuk/
+            - link "Visit our X (formerly Twitter) page (opens in new tab)" [ref=e419] [cursor=pointer]:
+              - /url: http://twitter.com/SuzukiCarsUK
+            - link "Visit our Instagram page (opens in new tab)" [ref=e420] [cursor=pointer]:
+              - /url: https://instagram.com/suzukicarsuk
+            - link "Visit our YouTube page (opens in new tab)" [ref=e421] [cursor=pointer]:
+              - /url: https://www.youtube.com/user/SuzukiCarsUK
+      - list "Legal and policy links" [ref=e422]:
+        - listitem [ref=e423]:
+          - link "Quality Policy" [ref=e424] [cursor=pointer]:
+            - /url: https://cars-services.suzuki.co.uk/api/Asset/GetAsset/suzuki-quality-policy.pdf
+        - listitem [ref=e425]:
+          - link "Human Trafficking Statement" [ref=e426] [cursor=pointer]:
+            - /url: https://cars-services.suzuki.co.uk/api/Asset/GetAsset/suzuki-modern-slavery-and-human-trafficking-statement.pdf
+        - listitem [ref=e427]:
+          - link "Manage Cookies" [ref=e428] [cursor=pointer]:
+            - /url: /finance-calculator/#
+        - listitem [ref=e429]:
+          - link "Sitemap" [ref=e430] [cursor=pointer]:
+            - /url: https://staging-cars.test-suzuki.co.uk/sitemap/
+        - link "Cyber Essentials Certified" [ref=e431] [cursor=pointer]:
+          - /url: /cyber-essentials-certificate/
+          - img "Suzuki Cyber Essentials Certified" [ref=e432]
+  - alert [ref=e433]: Car Finance Calculator | Suzuki Cars UK
+  - generic: ...
+```
+
+# Test source
+
+```ts
+  760 |       .click();
+  761 |   });
+  762 |   await allure.step("Click Review your booking", async () => {
+  763 |     await page.getByRole("button", { name: "Review your booking" }).click();
+  764 |   });
+  765 |   await allure.step("Select title", async () => {
+  766 |     await page.getByRole("combobox", { name: "Select Title" }).click();
+  767 |     await page.getByRole("option", { name: "Mr", exact: true }).click();
+  768 |   });
+  769 |   await allure.step("Fill First name and Last name fields", async () => {
+  770 |     await page
+  771 |       .getByRole("textbox", { name: "First Name (required)" })
+  772 |       .fill("Test");
+  773 |     await page
+  774 |       .getByRole("textbox", { name: "Last Name (required)" })
+  775 |       .fill("Data");
+  776 |   });
+  777 |   await allure.step("Fill Job title", async () => {
+  778 |     await page
+  779 |       .getByRole("textbox", { name: "Job Title (required)" })
+  780 |       .fill("Test");
+  781 |   });
+  782 |   await allure.step("Fill Business email", async () => {
+  783 |     await page
+  784 |       .getByRole("textbox", { name: "Business email (required)" })
+  785 |       .fill("hello@suzuki.co.uk");
+  786 |   });
+  787 |   await allure.step("Fill Business phone", async () => {
+  788 |     await page
+  789 |       .getByRole("textbox", { name: "Business Phone (required)" })
+  790 |       .fill("022634646");
+  791 |   });
+  792 |   await allure.step("Fill Business name", async () => {
+  793 |     await page
+  794 |       .getByRole("textbox", { name: "Business name (required)" })
+  795 |       .fill("Test");
+  796 |   });
+  797 |   await allure.step("Fill Business postcode", async () => {
+  798 |     await page
+  799 |       .getByRole("textbox", { name: "Business Postcode (required)" })
+  800 |       .fill("MK4 4AE");
+  801 |   });
+  802 |   await allure.step("Select vehicle registration option", async () => {
+  803 |     await page
+  804 |       .locator(".styles_vrn_label__G3cbO.false > span:nth-child(2)")
+  805 |       .first()
+  806 |       .click();
+  807 |   });
+  808 |   await allure.step("Fill Building number / name", async () => {
+  809 |     await page
+  810 |       .getByRole("textbox", { name: "Building number / name (" })
+  811 |       .fill("7e");
+  812 |   });
+  813 |   await allure.step("Fill Street name", async () => {
+  814 |     await page
+  815 |       .getByRole("textbox", { name: "Street name (required)" })
+  816 |       .fill("Street");
+  817 |   });
+  818 |   await allure.step("Fill Town", async () => {
+  819 |     await page.getByRole("textbox", { name: "Town (required)" }).fill("Town");
+  820 |   });
+  821 |   await allure.step("Fill County", async () => {
+  822 |     await page
+  823 |       .getByRole("textbox", { name: "County (required)" })
+  824 |       .fill("County");
+  825 |   });
+  826 |   await allure.step("Accept Email opt in", async () => {
+  827 |     await page.getByRole("checkbox", { name: "Email" }).check();
+  828 |   });
+  829 |   await allure.step("Click Review booking", async () => {
+  830 |     await page.getByRole("button", { name: "Review booking" }).click();
+  831 |   });
+  832 |   await allure.step("Click Review booking again", async () => {
+  833 |     await page.getByRole("button", { name: "Review booking" }).click();
+  834 |   });
+  835 | });
+  836 | 
+  837 | test("Finance - Vitara", async ({ page }) => {
+  838 |   await allure.epic("Service booking");
+  839 |   await allure.feature("Booking a service and MOT");
+  840 |   await allure.severity(Severity.CRITICAL);
+  841 |   await allure.description("User is able to calculate financing - Vitara");
+  842 |   await allure.owner("QA Team");
+  843 |   await allure.tag("smoke");
+  844 |   await page.goto(
+  845 |     "https://staging-cars.test-suzuki.co.uk/offers-finance/?cOut=bm9DYXB0Y2hhOkFTZGtqeUcqT0AkIVlVQDRoa3VxandoYmkmXlkhQFVnaHZxc2tkamF3eXJlODEy",
+  846 |   );
+  847 |   await acceptCookiesIfPresent(page);
+  848 | 
+  849 |   await allure.step("Click Explore Vitara offers", async () => {
+  850 |     await page.getByRole('link', { name: 'Explore Vitara offers' }).click();
+  851 |   });
+  852 |   
+  853 |   await allure.step("Click Finance Calculator", async () => {
+  854 |     await page.getByLabel('Main banner').getByRole('link', { name: 'Finance Calculator' }).click();
+  855 |   });
+  856 |   await allure.step("Select customer type Personal", async () => {
+  857 |     await page.locator("label").filter({ hasText: "Personal" }).click();
+  858 |   });
+  859 |   await allure.step("Select grade type", async () => {
+> 860 |     await page.getByRole("combobox", { name: "Grade type (Required) MOTION" }).click();
+      |                                                                                ^ Error: locator.click: Test timeout of 30000ms exceeded.
+  861 |     await page.getByRole("option", { name: "MOTION MILD HYBRID Motion Mild Hybrid Manual" }).click();
+  862 | });
+  863 |   await allure.step("Set deposit percentage slider", async () => {
+  864 |     const slider = page.locator("#monthlyPaymentsValue");
+  865 |     await slider.scrollIntoViewIfNeeded();
+  866 |     await slider.fill("30");
+  867 |   });
+  868 |   await allure.step("Set annual mileage slider", async () => {
+  869 |     const mileage_slider = page.getByRole("slider", { name: "What’s your annual mileage?" });
+  870 |     await mileage_slider.focus();
+  871 |     for (let i = 0; i < 8; i++)
+  872 |       await mileage_slider.press("ArrowRight");
+  873 |   });
+  874 |   await allure.step("Fill Deposit amount", async () => {
+  875 |     await page.getByRole("textbox", { name: "Deposit" }).fill("4000");
+  876 |   });
+  877 |   await allure.step("Click Calculate financing", async () => {
+  878 |     await page.getByRole("button", { name: "Calculate financing" }).click();
+  879 |   });
+  880 |   await allure.step("Click Send to dealer", async () => {
+  881 |     await page.getByRole("button", { name: "Send to dealer" }).click();
+  882 |   });
+  883 |   await allure.step("Enter postcode or location", async () => {
+  884 |     await page
+  885 |       .getByRole("searchbox", { name: "Postcode or location" })
+  886 |       .fill("mk4 4ae");
+  887 |   });
+  888 |   await allure.step("Click search", async () => {
+  889 |     await page
+  890 |       .getByRole("button", { name: "Search postcode or location" })
+  891 |       .click();
+  892 |   });
+  893 |   await allure.step("Click Your details", async () => {
+  894 |     await page.getByRole("button", { name: "Your details" }).nth(1).click();
+  895 |   });
+  896 |   await allure.step("Select title", async () => {
+  897 |     await page.getByRole("combobox", { name: "Select Title" }).click();
+  898 |     await page.getByRole("option", { name: "Mr", exact: true }).click();
+  899 |   });
+  900 |   await allure.step("Fill First name and Last name fields", async () => {
+  901 |     await page
+  902 |       .getByRole("textbox", { name: "First name (required)" })
+  903 |       .fill("Test");
+  904 |     await page
+  905 |       .getByRole("textbox", { name: "Last name (required)" })
+  906 |       .fill("Data");
+  907 |   });
+  908 |   await allure.step("Fill Email", async () => {
+  909 |     await page
+  910 |       .getByRole("textbox", { name: "Email (required)" })
+  911 |       .fill("hello@suzuki.co.uk");
+  912 |   });
+  913 |   await allure.step("Fill Phone number", async () => {
+  914 |     await page
+  915 |       .getByRole("textbox", { name: "Phone (required)" })
+  916 |       .fill("022636565");
+  917 |   });
+  918 |   await allure.step("Click Review details", async () => {
+  919 |     await page.getByRole("button", { name: "Review details" }).click();
+  920 |   });
+  921 | });
+  922 | 
+```

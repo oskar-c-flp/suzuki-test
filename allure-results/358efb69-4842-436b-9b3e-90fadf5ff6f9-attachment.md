@@ -1,0 +1,469 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: 4W.spec.ts >> Business Enquiry - 25+ cars
+- Location: tests\4W.spec.ts:1187:5
+
+# Error details
+
+```
+Test timeout of 30000ms exceeded.
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - alert [ref=e3]
+    - status [ref=e4]
+    - link "Skip to main content" [ref=e5] [cursor=pointer]:
+      - /url: "#main-content"
+    - banner [ref=e6]:
+      - button "Close notification banner" [ref=e7] [cursor=pointer]
+      - generic [ref=e9]:
+        - navigation "Quick links" [ref=e10]:
+          - list [ref=e11]:
+            - listitem [ref=e12]:
+              - link "Find us" [ref=e13] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/find-a-dealer/
+            - listitem [ref=e16]:
+              - link "Book a Test Drive" [ref=e17] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/request-a-test-drive/
+            - listitem [ref=e20]:
+              - link "Book a Service" [ref=e21] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/owners/request-a-service/
+            - listitem [ref=e24]:
+              - link "Request a callback" [ref=e25] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/request-a-call-back/
+                - generic [ref=e27]: Request a Callback
+            - listitem [ref=e28]:
+              - link "Request a brochure" [ref=e29] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/request-a-brochure/
+            - listitem [ref=e32]:
+              - link "Finance Calculator" [ref=e33] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/finance-calculator/
+        - link "Suzuki homepage" [ref=e36] [cursor=pointer]:
+          - /url: /
+        - navigation "Main navigation" [ref=e38]:
+          - list [ref=e42]:
+            - link "NEW CARS, 1 of 6" [ref=e43] [cursor=pointer]:
+              - /url: "#"
+              - text: NEW CARS
+            - link "USED CARS, 2 of 6" [ref=e44] [cursor=pointer]:
+              - /url: "#"
+              - text: USED CARS
+            - link "MOTABILITY, 3 of 6" [ref=e45] [cursor=pointer]:
+              - /url: "#"
+              - text: MOTABILITY
+            - link "BUSINESS, 4 of 6" [ref=e46] [cursor=pointer]:
+              - /url: "#"
+              - text: BUSINESS
+            - link "OFFERS & FINANCE, 5 of 6" [ref=e47] [cursor=pointer]:
+              - /url: "#"
+              - text: OFFERS & FINANCE
+            - link "OWNERS, 6 of 6" [ref=e48] [cursor=pointer]:
+              - /url: "#"
+              - text: OWNERS
+          - status [ref=e49]
+          - button "Search Suzuki website. Focus moves to search field when activated." [ref=e50] [cursor=pointer]
+    - main [ref=e54]:
+      - generic [ref=e55]:
+        - generic [ref=e56]:
+          - generic [ref=e58]:
+            - generic [ref=e59]:
+              - button "Back" [ref=e60] [cursor=pointer]
+              - heading "Business Enquiry" [level=2] [ref=e61]
+              - paragraph [ref=e62]: Step 3 of 4
+            - heading "Your details" [level=1] [ref=e63]
+          - generic [ref=e64]:
+            - generic [ref=e66]:
+              - generic [ref=e67]:
+                - heading "Your details:" [level=3] [ref=e68]
+                - paragraph [ref=e70]: Tell us about you and your business so we can help you
+              - generic [ref=e73]:
+                - generic [ref=e74]:
+                  - generic [ref=e76]:
+                    - generic [ref=e77]:
+                      - generic:
+                        - generic:
+                          - text: Title
+                          - generic: required
+                          - generic: (required)
+                      - combobox "Select Title" [active] [ref=e80] [cursor=pointer]
+                    - paragraph
+                  - generic [ref=e82]:
+                    - generic [ref=e83]:
+                      - generic [ref=e84]:
+                        - text: First name
+                        - generic [ref=e85]: (required)
+                        - text: (required)
+                      - textbox "First name (required)" [ref=e86]:
+                        - /placeholder: ""
+                    - paragraph
+                  - generic [ref=e87]:
+                    - generic [ref=e88]:
+                      - generic [ref=e89]:
+                        - text: Last name
+                        - generic [ref=e90]: (required)
+                        - text: (required)
+                      - textbox "Last name (required)" [ref=e91]:
+                        - /placeholder: ""
+                    - paragraph
+                  - generic [ref=e92]:
+                    - generic [ref=e93]:
+                      - generic [ref=e94]:
+                        - text: Job title
+                        - generic [ref=e95]: (required)
+                        - text: (required)
+                      - textbox "Job title (required)" [ref=e96]:
+                        - /placeholder: ""
+                    - paragraph
+                  - generic [ref=e97]:
+                    - generic [ref=e98]:
+                      - generic [ref=e99]:
+                        - text: Business email
+                        - generic [ref=e100]: (required)
+                        - text: (required)
+                      - textbox "Business email (required)" [ref=e101]:
+                        - /placeholder: ""
+                    - paragraph
+                  - generic [ref=e102]:
+                    - generic [ref=e103]:
+                      - generic [ref=e104]:
+                        - text: Business phone
+                        - generic [ref=e105]: (required)
+                        - text: (required)
+                      - textbox "Business phone (required)" [ref=e106]:
+                        - /placeholder: ""
+                    - paragraph
+                - generic [ref=e107]:
+                  - heading "Business Details:" [level=3] [ref=e108]
+                  - generic [ref=e109]:
+                    - generic [ref=e110]:
+                      - generic [ref=e111]:
+                        - text: Business name
+                        - generic [ref=e112]: (required)
+                        - text: (required)
+                      - textbox "Business name (required)" [ref=e113]:
+                        - /placeholder: ""
+                    - paragraph
+                  - generic [ref=e115]:
+                    - generic [ref=e116]:
+                      - generic [ref=e117]: Business postcode *
+                      - textbox "Business postcode *" [ref=e118]
+                    - img "search" [ref=e120] [cursor=pointer]
+                  - generic [ref=e121]:
+                    - generic [ref=e122]:
+                      - generic [ref=e123]:
+                        - text: Building number / name
+                        - generic [ref=e124]: (required)
+                        - text: (required)
+                      - textbox "Building number / name (required)" [ref=e125]:
+                        - /placeholder: ""
+                    - paragraph
+                  - generic [ref=e126]:
+                    - generic [ref=e127]:
+                      - generic [ref=e128]:
+                        - text: Street name
+                        - generic [ref=e129]: (required)
+                        - text: (required)
+                      - textbox "Street name (required)" [ref=e130]:
+                        - /placeholder: ""
+                    - paragraph
+                  - generic [ref=e131]:
+                    - generic [ref=e132]:
+                      - generic [ref=e133]:
+                        - text: Town
+                        - generic [ref=e134]: (required)
+                        - text: (required)
+                      - textbox "Town (required)" [ref=e135]:
+                        - /placeholder: ""
+                    - paragraph
+                  - generic [ref=e136]:
+                    - generic [ref=e137]:
+                      - generic [ref=e138]:
+                        - text: County
+                        - generic [ref=e139]: (required)
+                        - text: (required)
+                      - textbox "County (required)" [ref=e140]:
+                        - /placeholder: ""
+                    - paragraph
+                - generic [ref=e142]:
+                  - text: Suzuki GB PLC and our
+                  - link "authorised dealer network (opens in new tab)" [ref=e144] [cursor=pointer]:
+                    - /url: /find-a-dealer/
+                    - text: authorised dealer network
+                    - generic [ref=e145]: (opens in new tab)
+                  - text: value your privacy and are committed to protecting your data. If you'd like to receive updates on news, offers, and services, simply OPT IN by checking the boxes below.
+                - generic [ref=e146]:
+                  - generic [ref=e147]:
+                    - generic [ref=e148]: Phone
+                    - checkbox "Phone" [ref=e150] [cursor=pointer]
+                  - generic [ref=e151]:
+                    - generic [ref=e152]: Email
+                    - checkbox "Email" [ref=e154] [cursor=pointer]
+                  - generic [ref=e155]:
+                    - generic [ref=e156]: SMS
+                    - checkbox "SMS" [ref=e158] [cursor=pointer]
+                - generic [ref=e160]:
+                  - text: To find out more, please see
+                  - link "SGB’s Privacy Policy (opens in new tab)" [ref=e162] [cursor=pointer]:
+                    - /url: /privacy/
+                    - text: SGB’s Privacy Policy
+                    - generic [ref=e163]: (opens in new tab)
+                  - text: . You can withdraw your consent to receiving communications at any time by emailing
+                  - link "customerservices@suzuki.co.uk" [ref=e164] [cursor=pointer]:
+                    - /url: mailto:customerservices@suzuki.co.uk
+                  - text: .
+            - button "Review your enquiry" [disabled] [ref=e167]
+        - status [ref=e170]
+      - button "Review your enquiry" [disabled] [ref=e172]
+    - contentinfo [ref=e175]:
+      - generic [ref=e176]:
+        - paragraph [ref=e177]: Not finished? It's all here...
+        - generic [ref=e178]:
+          - button "Search for results" [ref=e179] [cursor=pointer]:
+            - img "Search icon" [ref=e180]
+          - searchbox "Search" [ref=e181]
+        - generic [ref=e182]:
+          - generic [ref=e183]: "Popular searches:"
+          - list [ref=e184]:
+            - listitem [ref=e185]:
+              - link "Vitara" [ref=e186] [cursor=pointer]:
+                - /url: /search/?search=Vitara&pageCount=1
+            - listitem [ref=e188]:
+              - link "Motability" [ref=e189] [cursor=pointer]:
+                - /url: /search/?search=Motability&pageCount=1
+            - listitem [ref=e191]:
+              - link "Dealers" [ref=e192] [cursor=pointer]:
+                - /url: /search/?search=Dealers&pageCount=1
+            - listitem [ref=e194]:
+              - link "Hybrid" [ref=e195] [cursor=pointer]:
+                - /url: /search/?search=Hybrid&pageCount=1
+            - listitem [ref=e197]:
+              - link "Contact" [ref=e198] [cursor=pointer]:
+                - /url: /search/?search=Contact&pageCount=1
+            - listitem [ref=e200]:
+              - link "Swift" [ref=e201] [cursor=pointer]:
+                - /url: /search/?search=Swift&pageCount=1
+            - listitem [ref=e203]:
+              - link "0% Car Finance" [ref=e204] [cursor=pointer]:
+                - /url: /search/?search=0%25%20Car%20Finance&pageCount=1
+            - listitem [ref=e206]:
+              - link "Electric" [ref=e207] [cursor=pointer]:
+                - /url: /search/?search=Electric&pageCount=1
+      - generic [ref=e210]:
+        - generic [ref=e211]:
+          - generic [ref=e212]: Models
+          - list [ref=e213]:
+            - listitem [ref=e214]:
+              - link "e Vitara" [ref=e215] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/new-cars/e-vitara/
+            - listitem [ref=e216]:
+              - link "Swift" [ref=e217] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/new-cars/swift/
+            - listitem [ref=e218]:
+              - link "S-Cross" [ref=e219] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/new-cars/s-cross/
+            - listitem [ref=e220]:
+              - link "Vitara" [ref=e221] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/new-cars/vitara/
+            - listitem [ref=e222]:
+              - link "Across" [ref=e223] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/new-cars/across/
+            - listitem [ref=e224]:
+              - link "Ignis" [ref=e225] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/new-cars/ignis/
+            - listitem [ref=e226]:
+              - link "Swace" [ref=e227] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/new-cars/swace/
+            - listitem [ref=e228]:
+              - link "Swift Sport" [ref=e229] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/new-cars/swift-sport/
+            - listitem [ref=e230]:
+              - link "Jimny" [ref=e231] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/new-cars/jimny/
+        - generic [ref=e232]:
+          - generic [ref=e233]: About Suzuki
+          - list [ref=e234]:
+            - listitem [ref=e235]:
+              - link "About Us" [ref=e236] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/about-us/
+            - listitem [ref=e237]:
+              - link "Awards" [ref=e238] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/awards/
+            - listitem [ref=e239]:
+              - link "Contact Us" [ref=e240] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/contact-us/
+            - listitem [ref=e241]:
+              - link "Careers" [ref=e242] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/careers/
+            - listitem [ref=e243]:
+              - link "Apprenticeships" [ref=e244] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/apprenticeships/
+        - generic [ref=e245]:
+          - generic [ref=e246]: Business
+          - list [ref=e247]:
+            - listitem [ref=e248]:
+              - link "Company Car Driver" [ref=e249] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/business/company-car/
+            - listitem [ref=e250]:
+              - link "Fleet Managers" [ref=e251] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/business/fleet-manager/
+            - listitem [ref=e252]:
+              - link "Driving Instructors" [ref=e253] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/business/driving-school-programme/
+            - listitem [ref=e254]:
+              - link "Suzuki Dealer Franchise" [ref=e255] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/franchised-suzuki-dealer/
+        - generic [ref=e256]:
+          - generic [ref=e257]: Owners
+          - list [ref=e258]:
+            - listitem [ref=e259]:
+              - link "Book a Service" [ref=e260] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/owners/request-a-service/
+            - listitem [ref=e261]:
+              - link "Suzuki Servicing" [ref=e262] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/owners/servicing/
+            - listitem [ref=e263]:
+              - link "Handbooks" [ref=e264] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/owners/using-your-car/owners-handbooks/
+        - generic [ref=e265]:
+          - generic [ref=e266]: Suzuki Global
+          - list [ref=e267]:
+            - listitem [ref=e268]:
+              - link "Bikes" [ref=e269] [cursor=pointer]:
+                - /url: https://staging-bikes.test-suzuki.co.uk/
+            - listitem [ref=e270]:
+              - link "ATV" [ref=e271] [cursor=pointer]:
+                - /url: https://staging-atv.test-suzuki.co.uk/
+            - listitem [ref=e272]:
+              - link "Marine" [ref=e273] [cursor=pointer]:
+                - /url: https://staging-marine.test-suzuki.co.uk/
+        - generic [ref=e274]:
+          - generic [ref=e275]: Useful Information
+          - list [ref=e276]:
+            - listitem [ref=e277]:
+              - link "Privacy Policy" [ref=e278] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/privacy/
+            - listitem [ref=e279]:
+              - link "Cookie Policy" [ref=e280] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/privacy/cookie-policy/
+            - listitem [ref=e281]:
+              - link "Quality Policy" [ref=e282] [cursor=pointer]:
+                - /url: https://cars-services.suzuki.co.uk/api/Asset/GetAsset/suzuki-quality-policy.pdf
+            - listitem [ref=e283]:
+              - link "Legal" [ref=e284] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/terms-of-use/
+            - listitem [ref=e285]:
+              - link "Section 172 Statement" [ref=e286] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/section-172-statement/
+            - listitem [ref=e287]:
+              - link "Tax Strategy" [ref=e288] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/uk-tax-strategy/
+            - listitem [ref=e289]:
+              - link "Human Trafficking Statement, opens in new tab" [ref=e290] [cursor=pointer]:
+                - /url: https://cars-services.suzuki.co.uk/api/Asset/GetAsset/suzuki-modern-slavery-and-human-trafficking-statement.pdf
+                - text: Human Trafficking Statement
+            - listitem [ref=e291]:
+              - link "Certificate of Conformity" [ref=e292] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/contact-us/certificate-of-conformity/
+            - listitem [ref=e293]:
+              - link "Sitemap" [ref=e294] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/sitemap/
+            - listitem [ref=e295]:
+              - link "Manage Cookies" [ref=e296] [cursor=pointer]:
+                - /url: /business/enquiry/?cOut=bm9DYXB0Y2hhOkFTZGtqeUcqT0AkIVlVQDRoa3VxandoYmkmXlkhQFVnaHZxc2tkamF3eXJlODEy#
+        - generic [ref=e297]:
+          - generic [ref=e298]: Motability
+          - list [ref=e299]:
+            - listitem [ref=e300]:
+              - link "What is Motability" [ref=e301] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/motability/what-is-motability/
+            - listitem [ref=e302]:
+              - link "Motability Offers" [ref=e303] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/motability/
+        - generic [ref=e304]:
+          - generic [ref=e305]: Categories
+          - list [ref=e306]:
+            - listitem [ref=e307]:
+              - link "Electric Cars" [ref=e308] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/new-cars/electric-cars/
+            - listitem [ref=e309]:
+              - link "SUV Cars" [ref=e310] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/new-cars/suv-crossovers/
+            - listitem [ref=e311]:
+              - link "Small Cars" [ref=e312] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/new-cars/small-hatchbacks/
+            - listitem [ref=e313]:
+              - link "Hybrid Cars" [ref=e314] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/hybrid/
+            - listitem [ref=e315]:
+              - link "City Cars" [ref=e316] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/new-cars/city-cars/
+            - listitem [ref=e317]:
+              - link "Automatic Cars" [ref=e318] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/automatic-cars/
+            - listitem [ref=e319]:
+              - link "Family Cars" [ref=e320] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/new-cars/family-cars/
+            - listitem [ref=e321]:
+              - link "Plug-In Hybrid Cars" [ref=e322] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/hybrid/plug-in-hybrid-electric-vehicles/
+            - listitem [ref=e323]:
+              - link "AllGrip" [ref=e324] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/allgrip/
+        - generic [ref=e325]:
+          - generic [ref=e326]: Get your Suzuki
+          - list [ref=e327]:
+            - listitem [ref=e328]:
+              - link "Request a Brochure" [ref=e329] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/request-a-brochure/
+            - listitem [ref=e330]:
+              - link "Find us" [ref=e331] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/find-a-dealer/
+            - listitem [ref=e332]:
+              - link "Request A Test Drive" [ref=e333] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/request-a-test-drive/
+            - listitem [ref=e334]:
+              - link "Car Configurator" [ref=e335] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/new-cars/configure/
+            - listitem [ref=e336]:
+              - link "Finance Calculator" [ref=e337] [cursor=pointer]:
+                - /url: https://staging-cars.test-suzuki.co.uk/finance-calculator/
+        - generic [ref=e338]:
+          - generic [ref=e339]: Suzuki on social media
+          - generic [ref=e340]:
+            - link "Visit our Facebook page (opens in new tab)" [ref=e341] [cursor=pointer]:
+              - /url: http://facebook.com/suzukicarsuk/
+            - link "Visit our X (formerly Twitter) page (opens in new tab)" [ref=e342] [cursor=pointer]:
+              - /url: http://twitter.com/SuzukiCarsUK
+            - link "Visit our Instagram page (opens in new tab)" [ref=e343] [cursor=pointer]:
+              - /url: https://instagram.com/suzukicarsuk
+            - link "Visit our YouTube page (opens in new tab)" [ref=e344] [cursor=pointer]:
+              - /url: https://www.youtube.com/user/SuzukiCarsUK
+      - list "Legal and policy links" [ref=e345]:
+        - listitem [ref=e346]:
+          - link "Quality Policy" [ref=e347] [cursor=pointer]:
+            - /url: https://cars-services.suzuki.co.uk/api/Asset/GetAsset/suzuki-quality-policy.pdf
+        - listitem [ref=e348]:
+          - link "Human Trafficking Statement" [ref=e349] [cursor=pointer]:
+            - /url: https://cars-services.suzuki.co.uk/api/Asset/GetAsset/suzuki-modern-slavery-and-human-trafficking-statement.pdf
+        - listitem [ref=e350]:
+          - link "Manage Cookies" [ref=e351] [cursor=pointer]:
+            - /url: /business/enquiry/?cOut=bm9DYXB0Y2hhOkFTZGtqeUcqT0AkIVlVQDRoa3VxandoYmkmXlkhQFVnaHZxc2tkamF3eXJlODEy#
+        - listitem [ref=e352]:
+          - link "Sitemap" [ref=e353] [cursor=pointer]:
+            - /url: https://staging-cars.test-suzuki.co.uk/sitemap/
+        - link "Cyber Essentials Certified" [ref=e354] [cursor=pointer]:
+          - /url: /cyber-essentials-certificate/
+          - img "Suzuki Cyber Essentials Certified" [ref=e355]
+  - alert [ref=e356]
+  - generic: ...
+```

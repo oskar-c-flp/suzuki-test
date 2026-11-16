@@ -49,6 +49,8 @@ export default defineConfig({
     /* Attach video on first retry — also visible in Allure attachments */
     video: 'on',
     javaScriptEnabled: true,
+    headless: false,
+    launchOptions: { slowMo: 500 },
   },
   /* Configure projects for major browsers */
   projects: [

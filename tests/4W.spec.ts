@@ -1,7 +1,7 @@
 import { test, expect, Page } from "@playwright/test";
 import * as allure from "allure-js-commons";
 import { Severity } from "allure-js-commons";
-import { ContactForm, acceptCookiesIfPresent } from "../helpers/form-helper";
+import { BusinessDetailsForm, ContactForm, MotabilityDetailsForm, PersonalDetailsForm, acceptCookiesIfPresent } from "../helpers/form-helper";
 
 test("Download a brochure by email - Swift", async ({ page }) => {
   await allure.epic("Brochures");
@@ -30,23 +30,10 @@ test("Download a brochure by email - Swift", async ({ page }) => {
   await allure.step("Select customer type Personal", async () => {
     await page.getByRole("radio", { name: "Customer type Personal" }).check();
   });
-  await allure.step("Select title", async () => {
-    await page.getByRole("combobox", { name: "Select Title" }).click();
-    await page.getByRole("option", { name: "Mr", exact: true }).click();
-  });
-  await allure.step("Fill First name and last name", async () => {
-    await page
-      .getByRole("textbox", { name: "First Name (required)" })
-      .fill("Test");
-    await page
-      .getByRole("textbox", { name: "Last Name (required)" })
-      .fill("Data");
-  });
-  await allure.step("Fill Email", async () => {
-    await page
-      .getByRole("textbox", { name: "Email (required)" })
-      .fill("hello@suzuki.co.uk");
-  });
+  //Personal details
+  const personalDetailsForm = new PersonalDetailsForm(page);
+  await personalDetailsForm.fillPersonalDetails();
+
   await allure.step("Accept Email opt in", async () => {
     await page.getByRole("checkbox", { name: "Email" }).check();
   });
@@ -86,23 +73,10 @@ test("Download a brochure by email - e Vitara", async ({ page }) => {
   await allure.step("Select customer type Personal", async () => {
     await page.getByRole("radio", { name: "Customer type Personal" }).check();
   });
-  await allure.step("Select title", async () => {
-    await page.getByRole("combobox", { name: "Select Title" }).click();
-    await page.getByRole("option", { name: "Mr", exact: true }).click();
-  });
-  await allure.step("Fill First name and last name", async () => {
-    await page
-      .getByRole("textbox", { name: "First Name (required)" })
-      .fill("Test");
-    await page
-      .getByRole("textbox", { name: "Last Name (required)" })
-      .fill("Data");
-  });
-  await allure.step("Fill Email", async () => {
-    await page
-      .getByRole("textbox", { name: "Email (required)" })
-      .fill("hello@suzuki.co.uk");
-  });
+  //Personal details
+  const personalDetailsForm = new PersonalDetailsForm(page);
+  await personalDetailsForm.fillPersonalDetails();
+
   await allure.step("Accept Email opt in", async () => {
     await page.getByRole("checkbox", { name: "Email" }).check();
   });
@@ -156,23 +130,10 @@ test("Download a brochure by email - 3 brochures", async ({ page }) => {
   await allure.step("Select customer type Personal", async () => {
     await page.getByRole("radio", { name: "Customer type Personal" }).check();
   });
-  await allure.step("Select title", async () => {
-    await page.getByRole("combobox", { name: "Select Title" }).click();
-    await page.getByRole("option", { name: "Mr", exact: true }).click();
-  });
-  await allure.step("Fill First name and last name", async () => {
-    await page
-      .getByRole("textbox", { name: "First Name (required)" })
-      .fill("Test");
-    await page
-      .getByRole("textbox", { name: "Last Name (required)" })
-      .fill("Data");
-  });
-  await allure.step("Fill Email", async () => {
-    await page
-      .getByRole("textbox", { name: "Email (required)" })
-      .fill("hello@suzuki.co.uk");
-  });
+  //Personal details
+  const personalDetailsForm = new PersonalDetailsForm(page);
+  await personalDetailsForm.fillPersonalDetails();
+
   await allure.step("Accept Email opt in", async () => {
     await page.getByRole("checkbox", { name: "Email" }).check();
   });
@@ -231,38 +192,11 @@ test("Request a test drive - Swift", async ({ page }) => {
   await allure.step("Click Your Details", async () => {
     await page.getByRole("button", { name: "Your Details" }).nth(1).click();
   });
-  await allure.step("Select title", async () => {
-    await page.getByRole("combobox", { name: "Select Title" }).click();
-    await page.getByRole("option", { name: "Mr", exact: true }).click();
-  });
-  await allure.step("Fill First name and Last name fields", async () => {
-    await page
-      .getByRole("textbox", { name: "First name (required)" })
-      .fill("Test");
-    await page
-      .getByRole("textbox", { name: "Last name (required)" })
-      .fill("Data");
-  });
-  await allure.step("Fill Postcode", async () => {
-    await page
-      .getByRole("textbox", { name: "Postcode (required)" })
-      .fill("SW1W 0NY");
-  });
-  await allure.step("Fill Building number / name", async () => {
-    await page
-      .getByRole("textbox", { name: "Building number / name (" })
-      .fill("7E");
-  });
-  await allure.step("Fill Email", async () => {
-    await page
-      .getByRole("textbox", { name: "Email (required)" })
-      .fill("test@gmail.com");
-  });
-  await allure.step("Fill Phone number", async () => {
-    await page
-      .getByRole("textbox", { name: "Phone Number (required)" })
-      .fill("022845456");
-  });
+
+  //Motability details
+  const motabilityDetailsForm = new MotabilityDetailsForm(page);
+  await motabilityDetailsForm.fillMotabilityDetails();
+
   await allure.step("Email opt in", async () => {
     await page.getByRole("checkbox", { name: "Email" }).check();
   });
@@ -322,38 +256,11 @@ test("Request a test drive - S-Cross", async ({ page }) => {
   await allure.step("Click Your Details", async () => {
     await page.getByRole("button", { name: "Your Details" }).nth(1).click();
   });
-  await allure.step("Select title", async () => {
-    await page.getByRole("combobox", { name: "Select Title" }).click();
-    await page.getByRole("option", { name: "Mr", exact: true }).click();
-  });
-  await allure.step("Fill First name and Last name fields", async () => {
-    await page
-      .getByRole("textbox", { name: "First name (required)" })
-      .fill("Test");
-    await page
-      .getByRole("textbox", { name: "Last name (required)" })
-      .fill("Data");
-  });
-  await allure.step("Fill Postcode", async () => {
-    await page
-      .getByRole("textbox", { name: "Postcode (required)" })
-      .fill("SW1W 0NY");
-  });
-  await allure.step("Fill Building number / name", async () => {
-    await page
-      .getByRole("textbox", { name: "Building number / name (" })
-      .fill("7E");
-  });
-  await allure.step("Fill Email", async () => {
-    await page
-      .getByRole("textbox", { name: "Email (required)" })
-      .fill("test@gmail.com");
-  });
-  await allure.step("Fill Phone number", async () => {
-    await page
-      .getByRole("textbox", { name: "Phone Number (required)" })
-      .fill("022845456");
-  });
+  
+  //Motability details
+  const motabilityDetailsForm = new MotabilityDetailsForm(page);
+  await motabilityDetailsForm.fillMotabilityDetails();
+
   await allure.step("Click Review booking", async () => {
     await page.getByRole("button", { name: "Review booking" }).first().click();
   });
@@ -406,38 +313,11 @@ test("Request a test drive - e Vitara", async ({ page }) => {
   await allure.step("Click Your Details", async () => {
     await page.getByRole("button", { name: "Your Details" }).nth(1).click();
   });
-  await allure.step("Select title", async () => {
-    await page.getByRole("combobox", { name: "Select Title" }).click();
-    await page.getByRole("option", { name: "Mr", exact: true }).click();
-  });
-  await allure.step("Fill First name and Last name fields", async () => {
-    await page
-      .getByRole("textbox", { name: "First name (required)" })
-      .fill("Test");
-    await page
-      .getByRole("textbox", { name: "Last name (required)" })
-      .fill("Data");
-  });
-  await allure.step("Fill Postcode", async () => {
-    await page
-      .getByRole("textbox", { name: "Postcode (required)" })
-      .fill("SW1W 0NY");
-  });
-  await allure.step("Fill Building number / name", async () => {
-    await page
-      .getByRole("textbox", { name: "Building number / name (" })
-      .fill("7E");
-  });
-  await allure.step("Fill Email", async () => {
-    await page
-      .getByRole("textbox", { name: "Email (required)" })
-      .fill("test@gmail.com");
-  });
-  await allure.step("Fill Phone number", async () => {
-    await page
-      .getByRole("textbox", { name: "Phone Number (required)" })
-      .fill("022845456");
-  });
+  
+  //Motability details
+  const motabilityDetailsForm = new MotabilityDetailsForm(page);
+  await motabilityDetailsForm.fillMotabilityDetails();
+
   await allure.step("Email opt in", async () => {
     await page.getByRole("checkbox", { name: "Email" }).check();
   });
@@ -497,38 +377,11 @@ test("Request a test drive - Vitara", async ({ page }) => {
   await allure.step("Click Your Details", async () => {
     await page.getByRole("button", { name: "Your Details" }).nth(1).click();
   });
-  await allure.step("Select title", async () => {
-    await page.getByRole("combobox", { name: "Select Title" }).click();
-    await page.getByRole("option", { name: "Mr", exact: true }).click();
-  });
-  await allure.step("Fill First name and Last name fields", async () => {
-    await page
-      .getByRole("textbox", { name: "First name (required)" })
-      .fill("Test");
-    await page
-      .getByRole("textbox", { name: "Last name (required)" })
-      .fill("Data");
-  });
-  await allure.step("Fill Postcode", async () => {
-    await page
-      .getByRole("textbox", { name: "Postcode (required)" })
-      .fill("SW1W 0NY");
-  });
-  await allure.step("Fill Building number / name", async () => {
-    await page
-      .getByRole("textbox", { name: "Building number / name (" })
-      .fill("7E");
-  });
-  await allure.step("Fill Email", async () => {
-    await page
-      .getByRole("textbox", { name: "Email (required)" })
-      .fill("test@gmail.com");
-  });
-  await allure.step("Fill Phone number", async () => {
-    await page
-      .getByRole("textbox", { name: "Phone Number (required)" })
-      .fill("022845456");
-  });
+
+  //Motability details
+  const motabilityDetailsForm = new MotabilityDetailsForm(page);
+  await motabilityDetailsForm.fillMotabilityDetails();
+
   await allure.step("Click Review booking", async () => {
     await page.getByRole("button", { name: "Review booking" }).first().click();
   });
@@ -590,38 +443,11 @@ test("Request a test drive - 3 products", async ({ page }) => {
   await allure.step("Click Your Details", async () => {
     await page.getByRole("button", { name: "Your Details" }).nth(1).click();
   });
-  await allure.step("Select title", async () => {
-    await page.getByRole("combobox", { name: "Select Title" }).click();
-    await page.getByRole("option", { name: "Mr", exact: true }).click();
-  });
-  await allure.step("Fill First name and Last name fields", async () => {
-    await page
-      .getByRole("textbox", { name: "First name (required)" })
-      .fill("Test");
-    await page
-      .getByRole("textbox", { name: "Last name (required)" })
-      .fill("Data");
-  });
-  await allure.step("Fill Postcode", async () => {
-    await page
-      .getByRole("textbox", { name: "Postcode (required)" })
-      .fill("SW1W 0NY");
-  });
-  await allure.step("Fill Building number / name", async () => {
-    await page
-      .getByRole("textbox", { name: "Building number / name (" })
-      .fill("7E");
-  });
-  await allure.step("Fill Email", async () => {
-    await page
-      .getByRole("textbox", { name: "Email (required)" })
-      .fill("test@gmail.com");
-  });
-  await allure.step("Fill Phone number", async () => {
-    await page
-      .getByRole("textbox", { name: "Phone Number (required)" })
-      .fill("022845456");
-  });
+
+    //Motability details
+  const motabilityDetailsForm = new MotabilityDetailsForm(page);
+  await motabilityDetailsForm.fillMotabilityDetails();
+
   await allure.step("Email opt in", async () => {
     await page.getByRole("checkbox", { name: "Email" }).check();
   });
@@ -671,38 +497,11 @@ test("Find a dealer - Request a callback", async ({ page }) => {
   await allure.step("Select Personal", async () => {
     await page.getByRole("radio", { name: "Customer type Personal" }).check();
   });
-  await allure.step("Select title", async () => {
-    await page.getByRole("combobox", { name: "Select Title" }).click();
-    await page.getByRole("option", { name: "Mr", exact: true }).click();
-  });
-  await allure.step("Fill First name and Last name fields", async () => {
-    await page
-      .getByRole("textbox", { name: "First name (required)" })
-      .fill("Test");
-    await page
-      .getByRole("textbox", { name: "Last name (required)" })
-      .fill("Data");
-  });
-  await allure.step("Fill Postcode", async () => {
-    await page
-      .getByRole("textbox", { name: "Postcode (required)" })
-      .fill("MK4 4AE");
-  });
-  await allure.step("Fill Building number / name", async () => {
-    await page
-      .getByRole("textbox", { name: "Building number / name (" })
-      .fill("7E");
-  });
-  await allure.step("Fill Email", async () => {
-    await page
-      .getByRole("textbox", { name: "Email (required)" })
-      .fill("hello@suzuki.co.uk");
-  });
-  await allure.step("Fill Phone number", async () => {
-    await page
-      .getByRole("textbox", { name: "Phone Number (required)" })
-      .fill("022342344");
-  });
+
+  //Motability details
+  const motabilityDetailsForm = new MotabilityDetailsForm(page);
+  await motabilityDetailsForm.fillMotabilityDetails();
+
   await allure.step("Accept Email opt in", async () => {
     await page.getByRole("checkbox", { name: "Email" }).check();
   });
@@ -760,67 +559,11 @@ test("Find a dealer - Request a test drive", async ({ page }) => {
   await allure.step("Click Review your booking", async () => {
     await page.getByRole("button", { name: "Review your booking" }).click();
   });
-  await allure.step("Select title", async () => {
-    await page.getByRole("combobox", { name: "Select Title" }).click();
-    await page.getByRole("option", { name: "Mr", exact: true }).click();
-  });
-  await allure.step("Fill First name and Last name fields", async () => {
-    await page
-      .getByRole("textbox", { name: "First Name (required)" })
-      .fill("Test");
-    await page
-      .getByRole("textbox", { name: "Last Name (required)" })
-      .fill("Data");
-  });
-  await allure.step("Fill Job title", async () => {
-    await page
-      .getByRole("textbox", { name: "Job Title (required)" })
-      .fill("Test");
-  });
-  await allure.step("Fill Business email", async () => {
-    await page
-      .getByRole("textbox", { name: "Business email (required)" })
-      .fill("hello@suzuki.co.uk");
-  });
-  await allure.step("Fill Business phone", async () => {
-    await page
-      .getByRole("textbox", { name: "Business Phone (required)" })
-      .fill("022634646");
-  });
-  await allure.step("Fill Business name", async () => {
-    await page
-      .getByRole("textbox", { name: "Business name (required)" })
-      .fill("Test");
-  });
-  await allure.step("Fill Business postcode", async () => {
-    await page
-      .getByRole("textbox", { name: "Business Postcode (required)" })
-      .fill("MK4 4AE");
-  });
-  await allure.step("Select vehicle registration option", async () => {
-    await page
-      .locator(".styles_vrn_label__G3cbO.false > span:nth-child(2)")
-      .first()
-      .click();
-  });
-  await allure.step("Fill Building number / name", async () => {
-    await page
-      .getByRole("textbox", { name: "Building number / name (" })
-      .fill("7e");
-  });
-  await allure.step("Fill Street name", async () => {
-    await page
-      .getByRole("textbox", { name: "Street name (required)" })
-      .fill("Street");
-  });
-  await allure.step("Fill Town", async () => {
-    await page.getByRole("textbox", { name: "Town (required)" }).fill("Town");
-  });
-  await allure.step("Fill County", async () => {
-    await page
-      .getByRole("textbox", { name: "County (required)" })
-      .fill("County");
-  });
+  
+  //Business details
+  const businessDetailsForm = new BusinessDetailsForm(page);
+  await businessDetailsForm.fillBusinessDetails();
+
   await allure.step("Accept Email opt in", async () => {
     await page.getByRole("checkbox", { name: "Email" }).check();
   });
@@ -833,8 +576,8 @@ test("Find a dealer - Request a test drive", async ({ page }) => {
 });
 
 test("Finance - Vitara", async ({ page }) => {
-  await allure.epic("Service booking");
-  await allure.feature("Booking a service and MOT");
+  await allure.epic("Finance");
+  await allure.feature("Calculating financing options");
   await allure.severity(Severity.CRITICAL);
   await allure.description("User is able to calculate financing - Vitara");
   await allure.owner("QA Team");
@@ -845,26 +588,27 @@ test("Finance - Vitara", async ({ page }) => {
   await acceptCookiesIfPresent(page);
 
   await allure.step("Click Explore Vitara offers", async () => {
-    await page.getByRole("link", { name: "Explore Vitara offers" }).click();
+    await page.getByRole('link', { name: 'Explore Vitara offers' }).click();
   });
+  
   await allure.step("Click Finance Calculator", async () => {
-    await page
-      .getByLabel("Main banner")
-      .getByRole("link", { name: "Finance Calculator" })
-      .click();
+    await expect(page).toHaveURL(/vitara-offers-and-finance\//);
+    await page.getByLabel('Main banner').getByRole('link', { name: 'Finance Calculator' }).click();
   });
   await allure.step("Select customer type Personal", async () => {
-    await page.locator("label").filter({ hasText: "Personal" }).click();
+    await expect(page).toHaveURL(new RegExp("model=Vitara&grade=Motion%20Mild%20Hybrid"));
+    await expect(async () => {
+      await page.locator("label").filter({ hasText: "Personal" }).click();
+      await expect(page.getByRole("radio", { name: /Personal/ })).toBeChecked();
+}).toPass();
   });
   await allure.step("Set deposit percentage slider", async () => {
-    await page
-      .getByRole("slider", { name: "A larger deposit could reduce" })
-      .fill("30");
+    await page.getByRole('slider', { name: 'A larger deposit could reduce' }).fill('30');
   });
   await allure.step("Set annual mileage slider", async () => {
-    await page
-      .getByRole("slider", { name: "What’s your annual mileage?" })
-      .fill("14000");
+    const mileage_slider = page.getByRole("slider", { name: "What’s your annual mileage?" });
+    await mileage_slider.scrollIntoViewIfNeeded();
+    await mileage_slider.fill("14000");
   });
   await allure.step("Fill Deposit amount", async () => {
     await page.getByRole("textbox", { name: "Deposit" }).fill("4000");
@@ -888,29 +632,257 @@ test("Finance - Vitara", async ({ page }) => {
   await allure.step("Click Your details", async () => {
     await page.getByRole("button", { name: "Your details" }).nth(1).click();
   });
-  await allure.step("Select title", async () => {
-    await page.getByRole("combobox", { name: "Select Title" }).click();
-    await page.getByRole("option", { name: "Mr", exact: true }).click();
-  });
-  await allure.step("Fill First name and Last name fields", async () => {
-    await page
-      .getByRole("textbox", { name: "First name (required)" })
-      .fill("Test");
-    await page
-      .getByRole("textbox", { name: "Last name (required)" })
-      .fill("Data");
-  });
-  await allure.step("Fill Email", async () => {
-    await page
-      .getByRole("textbox", { name: "Email (required)" })
-      .fill("hello@suzuki.co.uk");
-  });
+
+  //Personal details
+  const personalDetailsForm = new PersonalDetailsForm(page);
+  await personalDetailsForm.fillPersonalDetails();
+
   await allure.step("Fill Phone number", async () => {
     await page
       .getByRole("textbox", { name: "Phone (required)" })
       .fill("022636565");
   });
   await allure.step("Click Review details", async () => {
-    await page.getByRole("button", { name: "Review details" }).click();
+    await page.getByRole("button", { name: "Review details" }).first().click();
   });
+  await allure.step("Verify Thank you message is displayed", async () => {
+    await expect(page.getByRole("heading", { name: "Thank you!" })).toBeVisible();
+  });
+});
+
+test("Finance - e Vitara", async ({ page }) => {
+  await allure.epic("Finance");
+  await allure.feature("Calculating financing options");
+  await allure.severity(Severity.CRITICAL);
+  await allure.description("User is able to calculate financing - e Vitara");
+  await allure.owner("QA Team");
+  await allure.tag("smoke");
+  await page.goto(
+    "https://staging-cars.test-suzuki.co.uk/offers-finance/?cOut=bm9DYXB0Y2hhOkFTZGtqeUcqT0AkIVlVQDRoa3VxandoYmkmXlkhQFVnaHZxc2tkamF3eXJlODEy",
+  );
+  await acceptCookiesIfPresent(page);
+
+  await allure.step("Click Explore Vitara offers", async () => {
+    await page.getByRole('link', { name: 'Explore e Vitara offers' }).click();
+  });
+  
+  await allure.step("Click Finance Calculator", async () => {
+    await expect(page).toHaveURL(/vitara-offers-and-finance\//);
+    await page.getByLabel('Main banner').getByRole('link', { name: 'Finance Calculator' }).click();
+  });
+  await allure.step("Select customer type Business", async () => {
+    await expect(page).toHaveURL(/grade=MOTION/);
+    await expect(async () => {
+      await page.locator("label").filter({ hasText: "Business" }).click();
+      await expect(page.getByRole("radio", { name: /Business/ })).toBeChecked();
+}).toPass();
+  });
+  await allure.step("Set deposit percentage slider", async () => {
+    await page.getByRole('slider', { name: 'A larger deposit could reduce' }).fill('30');
+  });
+  await allure.step("Set annual mileage slider", async () => {
+    const mileage_slider = page.getByRole("slider", { name: "What’s your annual mileage?" });
+    await mileage_slider.scrollIntoViewIfNeeded();
+    await mileage_slider.fill("14000");
+  });
+  await allure.step("Fill Deposit amount", async () => {
+    await page.getByRole("textbox", { name: "Deposit" }).fill("4000");
+  });
+  await allure.step("Click Calculate financing", async () => {
+    await page.getByRole("button", { name: "Calculate financing" }).click();
+  });
+  await allure.step("Click Send to dealer", async () => {
+    await page.getByRole("button", { name: "Send to dealer" }).click();
+  });
+  await allure.step("Enter postcode or location", async () => {
+    await page
+      .getByRole("searchbox", { name: "Postcode or location" })
+      .fill("mk4 4ae");
+  });
+  await allure.step("Click search", async () => {
+    await page
+      .getByRole("button", { name: "Search postcode or location" })
+      .click();
+  });
+  await allure.step("Click Your details", async () => {
+    await page.getByRole("button", { name: "Your details" }).nth(1).click();
+  });
+  
+  //Business details
+  const businessDetailsForm = new BusinessDetailsForm(page);
+  await businessDetailsForm.fillBusinessDetails();
+  
+  await allure.step("Click Review details", async () => {
+    await page.getByRole("button", { name: "Review details" }).first().click();
+  });
+  await allure.step("Verify Thank you message is displayed", async () => {
+    await expect(page.getByRole("heading", { name: "Thank you!" })).toBeVisible();
+  });
+});
+
+test("Finance - Swift", async ({ page }) => {
+  await allure.epic("Finance");
+  await allure.feature("Calculating financing options");
+  await allure.severity(Severity.CRITICAL);
+  await allure.description("User is able to calculate financing - Swift");
+  await allure.owner("QA Team");
+  await allure.tag("smoke");
+  await page.goto(
+    "https://staging-cars.test-suzuki.co.uk/offers-finance/?cOut=bm9DYXB0Y2hhOkFTZGtqeUcqT0AkIVlVQDRoa3VxandoYmkmXlkhQFVnaHZxc2tkamF3eXJlODEy",
+  );
+  await acceptCookiesIfPresent(page);
+
+  await allure.step("Click Explore Swift offers", async () => {
+    await page.getByRole('link', { name: 'Explore Swift offers' }).click();
+  });
+  
+  await allure.step("Click Finance Calculator", async () => {
+    await expect(page).toHaveURL(/swift-offers-and-finance\//);
+    await page.getByLabel('Main banner').getByRole('link', { name: 'Finance Calculator' }).click();
+  });
+  await allure.step("Select customer type Personal", async () => {
+    await expect(page).toHaveURL(new RegExp("model=Swift&grade=Motion%20Mild%20Hybrid"));
+    await expect(async () => {
+      await page.locator("label").filter({ hasText: "Personal" }).click();
+      await expect(page.getByRole("radio", { name: /Personal/ })).toBeChecked();
+}).toPass();
+  });
+  await allure.step("Set deposit percentage slider", async () => {
+    await page.getByRole('slider', { name: 'A larger deposit could reduce' }).fill('30');
+  });
+  await allure.step("Set annual mileage slider", async () => {
+    const mileage_slider = page.getByRole("slider", { name: "What’s your annual mileage?" });
+    await mileage_slider.scrollIntoViewIfNeeded();
+    await mileage_slider.fill("14000");
+  });
+  await allure.step("Fill Deposit amount", async () => {
+    await page.getByRole("textbox", { name: "Deposit" }).fill("4000");
+  });
+  await allure.step("Click Calculate financing", async () => {
+    await page.getByRole("button", { name: "Calculate financing" }).click();
+  });
+  await allure.step("Click Send to dealer", async () => {
+    await page.getByRole("button", { name: "Send to dealer" }).click();
+  });
+  await allure.step("Enter postcode or location", async () => {
+    await page
+      .getByRole("searchbox", { name: "Postcode or location" })
+      .fill("mk4 4ae");
+  });
+  await allure.step("Click search", async () => {
+    await page
+      .getByRole("button", { name: "Search postcode or location" })
+      .click();
+  });
+  await allure.step("Click Your details", async () => {
+    await page.getByRole("button", { name: "Your details" }).nth(1).click();
+  });
+
+  //Personal details
+  const personalDetailsForm = new PersonalDetailsForm(page);
+  await personalDetailsForm.fillPersonalDetails();
+
+  await allure.step("Fill Phone number", async () => {
+    await page
+      .getByRole("textbox", { name: "Phone (required)" })
+      .fill("022636565");
+  });
+  await allure.step("Click Review details", async () => {
+    await page.getByRole("button", { name: "Review details" }).first().click();
+  });
+  await allure.step("Verify Thank you message is displayed", async () => {
+    await expect(page.getByRole("heading", { name: "Thank you!" })).toBeVisible();
+  });
+});
+
+test("Business Enquiry - 24 cars", async ({ page }) => {
+  await allure.epic("Business Enquiry");
+  await allure.feature("Sending business enquiry for 24 cars");
+  await allure.severity(Severity.CRITICAL);
+  await allure.description("User is able to send a business enquiry for 24 cars");
+  await allure.owner("QA Team");
+  await allure.tag("smoke");
+  await page.goto(
+    "https://staging-cars.test-suzuki.co.uk/business/enquiry/?cOut=bm9DYXB0Y2hhOkFTZGtqeUcqT0AkIVlVQDRoa3VxandoYmkmXlkhQFVnaHZxc2tkamF3eXJlODEy",
+  );
+  await acceptCookiesIfPresent(page);
+
+  await allure.step("Select dealer option", async () => {
+  await page.getByRole("radio", { name: "Up to 24 cars Your nearest" }).check();
+});
+await allure.step("Click Choose a Dealer", async () => {
+  await page.getByRole("button", { name: "Choose a Dealer" }).click();
+});
+await allure.step("Enter postcode or location", async () => {
+  await page.getByRole("searchbox", { name: "Postcode or location" }).fill("MK4 4AE");
+});
+await allure.step("Click search", async () => {
+  await page.getByRole("button", { name: "Search postcode or location" }).click();
+});
+await allure.step("Click Your details", async () => {
+  await page.getByRole("button", { name: "Your details" }).nth(1).click();
+});
+
+//Business details
+const businessDetailsForm = new BusinessDetailsForm(page);
+await businessDetailsForm.fillBusinessDetails();
+
+await allure.step("Accept Email opt in", async () => {
+  await page.getByRole("checkbox", { name: "Email" }).check();
+});
+await allure.step("Click Review your enquiry", async () => {
+  await page.getByRole("button", { name: "Review your enquiry" }).click();
+});
+await allure.step("Click Send enquiry", async () => {
+  await page.getByRole("button", { name: "Send enquiry" }).click();
+});
+await allure.step("Verify Thank you message is displayed", async () => {
+  await expect(page.getByRole("heading", { name: "Thank you!" })).toBeVisible();
+});
+});
+
+test("Business Enquiry - 25+ cars", async ({ page }) => {
+  await allure.epic("Business Enquiry");
+  await allure.feature("Sending business enquiry for 25+ cars");
+  await allure.severity(Severity.CRITICAL);
+  await allure.description("User is able to send a business enquiry for 25+ cars");
+  await allure.owner("QA Team");
+  await allure.tag("smoke");
+  await page.goto(
+    "https://staging-cars.test-suzuki.co.uk/business/enquiry/?cOut=bm9DYXB0Y2hhOkFTZGtqeUcqT0AkIVlVQDRoa3VxandoYmkmXlkhQFVnaHZxc2tkamF3eXJlODEy",
+  );
+  await acceptCookiesIfPresent(page);
+
+  await allure.step("Select dealer option", async () => {
+  await page.getByRole('radio', { name: '25+ cars The Suzuki buiness' }).check();
+});
+await allure.step("Click Choose a Dealer", async () => {
+  await page.getByRole("button", { name: "Choose a Dealer" }).click();
+});
+await allure.step("Enter postcode or location", async () => {
+  await page.getByRole("searchbox", { name: "Postcode or location" }).fill("MK4 4AE");
+});
+await allure.step("Click search", async () => {
+  await page.getByRole("button", { name: "Search postcode or location" }).click();
+});
+await allure.step("Click Your details", async () => {
+  await page.getByRole("button", { name: "Your details" }).nth(1).click();
+});
+
+//Business details
+const businessDetailsForm = new BusinessDetailsForm(page);
+await businessDetailsForm.fillBusinessDetails();
+
+await allure.step("Accept Email opt in", async () => {
+  await page.getByRole("checkbox", { name: "Email" }).check();
+});
+await allure.step("Click Review your enquiry", async () => {
+  await page.getByRole("button", { name: "Review your enquiry" }).click();
+});
+await allure.step("Click Send enquiry", async () => {
+  await page.getByRole("button", { name: "Send enquiry" }).click();
+});
+await allure.step("Verify Thank you message is displayed", async () => {
+  await expect(page.getByRole("heading", { name: "Thank you!" })).toBeVisible();
+});
 });
